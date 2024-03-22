@@ -14,4 +14,23 @@ class BaseModel:
         self.created_at = datetime.utcnow()
         self.updated_at = datetime.utcnow()
 
+    def __str__(self):
+        """ string representation of the class. """
+        return "[{}] ({}) {}".format(self.__class__.__name__,
+                                    self.id, self.__dict__)
+
+    def save(self):
+        """ save to instance. """
+        self.updated_at = datetime.today()
+
+    def to_dict(self):
+        """ returns a dictionary containing all keys/values """
+
+        dict_copy = self.__dict__.copy()
+        dict_copy["created_at"] = self.created_at.isoformat()
+        dict_copy["updated_at"] = self.updated_at.isoformat()
+        dict_copy["__class__"] = self.__dict__.__name__
+
+        return dict_copy
+
 
