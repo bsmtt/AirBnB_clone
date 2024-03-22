@@ -30,7 +30,9 @@ class BaseModel:
 
     def save(self):
         """ save to instance. """
+        from models import storage
         self.updated_at = datetime.today()
+        storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values """
