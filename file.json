@@ -1,18 +1,1 @@
-{
-  "BaseModel.f303d091-01df-41a4-9c5d-2520a9b1fb55": {
-    "id": "f303d091-01df-41a4-9c5d-2520a9b1fb55",
-    "created_at": "2024-03-24T00:43:04.723061",
-    "updated_at": "2024-03-24T00:43:04.723061",
-    "name": "My_First_Model",
-    "my_number": 89,
-    "__class__": "BaseModel"
-  },
-  "BaseModel.a9973058-9fac-4161-aecb-996934891936": {
-    "id": "a9973058-9fac-4161-aecb-996934891936",
-    "created_at": "2024-03-24T00:43:04.731049",
-    "updated_at": "2024-03-24T00:43:04.731049",
-    "name": "My_First_Model",
-    "my_number": 89,
-    "__class__": "BaseModel"
-  }
-}
+{"User.13e39a82-270f-45bc-adeb-cd6a82867299": {"id": "13e39a82-270f-45bc-adeb-cd6a82867299", "created_at": "2024-03-24T01:28:33.274868", "updated_at": "2024-03-24T01:28:33.274868", "name": "My_First_Model", "first_name": "999", "__class__": "User"}, "User.a8faf6ec-0d87-46c6-97f8-a12a6d9f502d": {"first_name": "999", "id": "a8faf6ec-0d87-46c6-97f8-a12a6d9f502d", "created_at": "2024-03-24T01:28:33.285186", "updated_at": "2024-03-24T01:28:33.285186", "name": "My_First_Model", "__class__": "User"}}

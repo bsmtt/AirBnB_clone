@@ -9,18 +9,12 @@ class BaseModel:
 
     def __init__(self, *args, **kwargs):
         """Initialize BaseModel."""
-        print(kwargs)
-        if not kwargs:
-            print("============= no kwargs")
-        else:
-            print("============== kwargs")
 
-        for k, v in kwargs.items():
-            self.__dict__[k] = v
+        kwargs["id"] = str(uuid4())
+        kwargs["created_at"] = datetime.today()
+        kwargs["updated_at"] = datetime.today()
 
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.__dict__.update(kwargs)
 
         storage.new(self)
 
@@ -43,3 +37,4 @@ class BaseModel:
         dict_copy["__class__"] = self.__class__.__name__
 
         return dict_copy
+

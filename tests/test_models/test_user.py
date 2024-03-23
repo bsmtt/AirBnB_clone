@@ -2,7 +2,6 @@
 """ Test cases for the base model"""
 
 import unittest
-from datetime import datetime
 from models.user import User
 
 
@@ -11,7 +10,7 @@ class TestUser(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
-        self.user = User({
+        self.new = User({
         "email": "email",
         "password": "password",
         "first_name": "first_name",
@@ -20,20 +19,16 @@ class TestUser(unittest.TestCase):
 
     def test_email(self):
         """ test email """
-        new = self.value()
-        self.assertEqual(type(new.email), str)
+        self.assertEqual(self.new.email, "email")
 
     def test_password(self):
         """ test password """
-        new = self.value()
-        self.assertEqual(type(new.password), str)
+        self.assertEqual(self.new.password, "password")
 
     def test_first_name(self):
         """ test first name """
-        new = self.value()
-        self.assertEqual(type(new.first_name), str)
+        self.assertEqual(self.new.first_name, "first_name")
 
     def test_last_name(self):
         """ test last name """
-        new = self.value()
-        self.assertEqual(type(new.last_name), str)
+        self.assertEqual(self.new.last_name, "last_name")
