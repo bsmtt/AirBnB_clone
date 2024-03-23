@@ -2,26 +2,27 @@
 """the Base Model """
 from uuid import uuid4
 from datetime import datetime
-
+from models import storage
 
 class BaseModel:
     """the BaseModel of HBnB """
 
     def __init__(self, *args, **kwargs):
         """Initialize BaseModel."""
-
+        print(kwargs)
         if not kwargs:
-            from models import storage
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-            storage.new(self)
+            print("============= no kwargs")
         else:
-            for k, v in kwargs.items():
-                if  k in ("updated_at", "created_at"):
-                    self.__dict__[k] = datetime.strptime(v, '%Y-%m-%dT%H:%M:%S.%f')
-                else:
-                    self.__dict__[k] = v
+            print("============== kwargs")
+
+        for k, v in kwargs.items():
+            self.__dict__[k] = v
+
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+
+        storage.new(self)
 
     def __str__(self):
         """ string representation of the class. """
@@ -30,7 +31,6 @@ class BaseModel:
 
     def save(self):
         """ save to instance. """
-        from models import storage
         self.updated_at = datetime.today()
         storage.save()
 
