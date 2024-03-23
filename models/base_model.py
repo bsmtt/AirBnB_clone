@@ -13,7 +13,7 @@ class BaseModel:
         kwargs["id"] = str(uuid4())
         kwargs["created_at"] = datetime.today()
         kwargs["updated_at"] = datetime.today()
-
+        del kwargs['__class__']
         self.__dict__.update(kwargs)
 
         storage.new(self)
