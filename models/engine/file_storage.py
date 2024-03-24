@@ -2,7 +2,13 @@
 """This module defines a class FileStorage that serializes instances 
 to a JSON file and deserializes JSON file to instances"""
 import json
-
+from models.base_model import BaseModel
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class FileStorage:
     """class serializes instances to a JSON file and deserializes JSON file to instances"""
@@ -31,22 +37,15 @@ class FileStorage:
         (only if the JSON file (__file_path) exists ;
         otherwise, do nothing.
         If the file doesn’t exist, no exception should be raised)"""
-        from models.base_model import BaseModel
-        from models.user import User
-        # from models.place import Place
-        # from models.state import State
-        # from models.city import City
-        # from models.amenity import Amenity
-        # from models.review import Review
 
         classes = {
                     'BaseModel': BaseModel,
                     'User': User,
-                    # 'Place': Place,
-                    # 'State': State,
-                    # 'City': City,
-                    # 'Amenity': Amenity,
-                    # 'Review': Review
+                    'Place': Place,
+                    'State': State,
+                    'City': City,
+                    'Amenity': Amenity,
+                    'Review': Review
                   }
         try:
             temp = {}
