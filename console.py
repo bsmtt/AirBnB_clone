@@ -82,5 +82,19 @@ class HBNBCommand(cmd.Cmd):
             del stored_dict[k]
             storage.save()
 
+    def do_all(self, line):
+        """Display string representations of all instances
+        """
+
+        args = line.split(" ")
+        if not line:
+            print([val for val in storage.all().values()])
+        else:
+            obj = []
+            for val in storage.all().values():
+                if  args[0] == val.__class__.__name__:
+                    obj.append(val.__str__())
+            print(obj)
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
