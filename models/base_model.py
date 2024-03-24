@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 """the Base Model """
+
+
 from uuid import uuid4
 from datetime import datetime
 from models import storage
+
 
 class BaseModel:
     """the BaseModel of HBnB """
