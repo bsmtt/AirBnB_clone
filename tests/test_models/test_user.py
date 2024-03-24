@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Test cases for the base model"""
-
 import unittest
 from models.user import User
+
 
 class TestUser(unittest.TestCase):
     """testing User class."""
@@ -10,11 +10,11 @@ class TestUser(unittest.TestCase):
         """ """
         super().__init__(*args, **kwargs)
         self.new = User({
-        "email": "email",
-        "password": "password",
-        "first_name": "first_name",
-        "last_name": "last_name"
-        })
+            "email": "email",
+            "password": "password",
+            "first_name": "first_name",
+            "last_name": "last_name"
+            })
 
     def test_email(self):
         """ test email """
