@@ -10,12 +10,17 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialize BaseModel."""
 
-        if kwargs:
+        if not kwargs:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
+        else:
+            kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
+                                                     '%Y-%m-%dT%H:%M:%S.%f')
+            kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
+                                                     '%Y-%m-%dT%H:%M:%S.%f')
             del kwargs['__class__']
-        kwargs["id"] = str(uuid4())
-        kwargs["created_at"] = datetime.today()
-        kwargs["updated_at"] = datetime.today()
-        self.__dict__.update(kwargs)
+            self.__dict__.update(kwargs)
 
         storage.new(self)
 
