@@ -14,13 +14,13 @@ class TestPlace(unittest.TestCase):
         "user_id": "user_id",
         "name": "name",
         "description": "description",
-        "number_rooms" : 0,
-        "number_bathrooms" : 0,
-        "max_guest" : 0,
-        "price_by_night" : 0,
-        "latitude" : 0.0,
-        "longitude" : 0.0,
-        "amenity_ids" : []
+        "number_rooms": 0,
+        "number_bathrooms": 0,
+        "max_guest": 0,
+        "price_by_night": 0,
+        "latitude": 0.0,
+        "longitude": 0.0,
+        "amenity_ids": []
         })
 
     def test_city_id(self):
@@ -38,7 +38,6 @@ class TestPlace(unittest.TestCase):
     def test_description(self):
         """ test description """
         self.assertEqual(self.new.description, "description")
-
 
     def test_number_rooms(self):
         """ test number_rooms """

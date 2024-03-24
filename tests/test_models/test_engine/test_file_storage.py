@@ -23,7 +23,7 @@ class test_fileStorage(unittest.TestCase):
 
     def test_save(self):
         """ storage save to json file """
-        new = BaseModel() 
+        new = BaseModel()
         storage.reload()
         for obj in storage.all().values():
             loaded = obj
