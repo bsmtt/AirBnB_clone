@@ -12,7 +12,15 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes = {"BaseModel", "User"}
+    __classes = {
+        "BaseModel",
+        "User",
+        "Amenity",
+        "City",
+        "Place",
+        "Review",
+        "State"
+        }
 
     def do_EOF(self, line):
         """EOF to exit the program.
