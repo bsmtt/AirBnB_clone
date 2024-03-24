@@ -56,5 +56,13 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn("name", bm)
         self.assertIn("my_number", bm)
 
+    def test_create_with_kwargs(self):
+        dt_at = datetime.today()
+        dt_at_iso = dt_at.isoformat()
+        bm = BaseModel(id="a572cae7-0dd3-4e1f-b353-9b43731c09ba", created_at=dt_at_iso, updated_at=dt_at_iso)
+        self.assertEqual(bm.id, "a572cae7-0dd3-4e1f-b353-9b43731c09ba")
+        self.assertEqual(bm.created_at, dt_at)
+        self.assertEqual(bm.updated_at, dt_at)
+
 if __name__ == "__main__":
     unittest.main()
