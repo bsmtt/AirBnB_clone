@@ -9,8 +9,8 @@ class TestAmenity(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
-        self.new = Amenity({"name": "name"})
+        self.new = Amenity()
 
     def test_name(self):
         """ test name """
-        self.assertEqual(self.new.email, "email")
+        self.assertEqual(self.new.name, "")
