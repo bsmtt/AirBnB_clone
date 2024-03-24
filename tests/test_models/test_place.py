@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Test cases for the base model"""
-
 import unittest
 from models.place import Place
+
 
 class TestPlace(unittest.TestCase):
     """testing Place class."""
@@ -10,18 +10,18 @@ class TestPlace(unittest.TestCase):
         """ """
         super().__init__(*args, **kwargs)
         self.new = Place({
-        "city_id": "city_id",
-        "user_id": "user_id",
-        "name": "name",
-        "description": "description",
-        "number_rooms" : 0,
-        "number_bathrooms" : 0,
-        "max_guest" : 0,
-        "price_by_night" : 0,
-        "latitude" : 0.0,
-        "longitude" : 0.0,
-        "amenity_ids" : []
-        })
+            "city_id": "city_id",
+            "user_id": "user_id",
+            "name": "name",
+            "description": "description",
+            "number_rooms": 0,
+            "number_bathrooms": 0,
+            "max_guest": 0,
+            "price_by_night": 0,
+            "latitude": 0.0,
+            "longitude": 0.0,
+            "amenity_ids": []
+            })
 
     def test_city_id(self):
         """ test city_id """
@@ -38,7 +38,6 @@ class TestPlace(unittest.TestCase):
     def test_description(self):
         """ test description """
         self.assertEqual(self.new.description, "description")
-
 
     def test_number_rooms(self):
         """ test number_rooms """

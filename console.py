@@ -19,13 +19,13 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
     __classes = {
-            "BaseModel", 
-            "User",
-            'Place',
-            'State',
-            'City',
-            'Amenity',
-            'Review'
+        "BaseModel",
+        "User",
+        "Amenity",
+        "City",
+        "Place",
+        "Review",
+        "State"
         }
 
     def do_EOF(self, line):
@@ -106,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             obj = []
             for val in storage.all().values():
-                if  args[0] == val.__class__.__name__:
+                if args[0] == val.__class__.__name__:
                     obj.append(val.__str__())
             print(obj)
 

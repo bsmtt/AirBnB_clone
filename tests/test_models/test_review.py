@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Test cases for the base model"""
-
 import unittest
 from models.review import Review
+
 
 class TestReview(unittest.TestCase):
     """testing Review class."""
@@ -10,10 +10,10 @@ class TestReview(unittest.TestCase):
         """ """
         super().__init__(*args, **kwargs)
         self.new = Review({
-        "place_id": "place_id",
-        "user_id": "user_id",
-        "text": "text"
-        })
+            "place_id": "place_id",
+            "user_id": "user_id",
+            "text": "text"
+            })
 
     def test_place_id(self):
         """ test place_id """
