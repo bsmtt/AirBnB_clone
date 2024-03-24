@@ -4,7 +4,6 @@
 import unittest
 from models.user import User
 
-
 class TestUser(unittest.TestCase):
     """testing User class."""
     def __init__(self, *args, **kwargs):
