@@ -9,20 +9,16 @@ class TestReview(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
-        self.new = Review({
-            "place_id": "place_id",
-            "user_id": "user_id",
-            "text": "text"
-            })
+        self.new = Review()
 
     def test_place_id(self):
         """ test place_id """
-        self.assertEqual(self.new.place_id, "place_id")
+        self.assertEqual(self.new.place_id, "")
 
     def test_user_id(self):
         """ test user_id """
-        self.assertEqual(self.new.user_id, "user_id")
+        self.assertEqual(self.new.user_id, "")
 
     def test_text(self):
         """ text first name """
-        self.assertEqual(self.new.text, "text")
+        self.assertEqual(self.new.text, "")

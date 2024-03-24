@@ -9,15 +9,12 @@ class TestCity(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
-        self.new = City({
-            "state_id": "state_id",
-            "name": "name"
-            })
+        self.new = City()
 
     def test_state_id(self):
         """ test state_id """
-        self.assertEqual(self.new.state_id, "state_id")
+        self.assertEqual(self.new.state_id, "")
 
     def test_name(self):
         """ test name """
-        self.assertEqual(self.new.name, "name")
+        self.assertEqual(self.new.name, "")

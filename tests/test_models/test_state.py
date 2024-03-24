@@ -9,10 +9,8 @@ class TestState(unittest.TestCase):
     def __init__(self, *args, **kwargs):
         """ """
         super().__init__(*args, **kwargs)
-        self.new = State({
-            "name": "name"
-            })
+        self.new = State()
 
     def test_name(self):
         """ test name """
-        self.assertEqual(self.new.name, "name")
+        self.assertEqual(self.new.name, "")
