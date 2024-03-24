@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """the Base Model """
-
-
 from uuid import uuid4
 from datetime import datetime
 from models import storage
@@ -30,7 +28,7 @@ class BaseModel:
     def __str__(self):
         """ string representation of the class. """
         return "[{}] ({}) {}".format(self.__class__.__name__,
-                                    self.id, self.__dict__)
+        self.id, self.__dict__)
 
     def save(self):
         """ save to instance. """
@@ -46,4 +44,3 @@ class BaseModel:
         dict_copy["__class__"] = self.__class__.__name__
 
         return dict_copy
-
