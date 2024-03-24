@@ -79,8 +79,7 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             k = "{}.{}".format(args[0], args[1])
-            val = stored_dict[k]
-            del val
+            del stored_dict[k]
             storage.save()
 
 if __name__ == '__main__':
