@@ -117,7 +117,6 @@ class HBNBCommand(cmd.Cmd):
                 type(eval(args[2])) != dict
             except NameError:
                 print("** value missing **")
-                return False
         else:
             if len(args) == 4:
                 obj = stored_dict["{}.{}".format(args[0], args[1])]
@@ -129,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             elif type(eval(args[2])) == dict:
                 obj = stored_dict["{}.{}".format(args[0], args[1])]
                 for k, v in eval(args[2]).items():
-                    if (k in obj.__class__.__dict__.keys() and type(obj.__class__.__dict__[k]) in {str, int, float}):
+                    if (k in obj.__class__.__dict__.keys()):
                         valtype = type(obj.__class__.__dict__[k])
                         obj.__dict__[k] = valtype(v)
                     else:
