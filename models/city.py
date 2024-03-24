@@ -7,4 +7,3 @@ class City(BaseModel):
     """class a class City that inherits from BaseModel"""
     state_id = ''
     name = ''
-
