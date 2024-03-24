@@ -4,7 +4,7 @@
 
 import unittest
 from models import storage
-from unittest.mock import  patch
+from unittest.mock import patch
 from io import StringIO
 from console import HBNBCommand
 
@@ -30,18 +30,26 @@ class TestHBNBCommand(unittest.TestCase):
 
     def test_create_missing_class(self):
         with patch("sys.stdout", new=StringIO()) as output:
+            msg = "** class name missing **"
             self.assertFalse(HBNBCommand().onecmd("create"))
-            self.assertEqual("** class name missing **", output.getvalue().strip())
+            self.assertEqual(msg, output.getvalue().strip())
 
     def test_create_doesnot_exist_class(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create New"))
-            self.assertEqual("** class doesn't exist **", output.getvalue().strip())
+            self.assertEqual(
+                "** class doesn't exist **",
+                output.getvalue().strip()
+            )
 
     def test_nnknown_syntax(self):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("test"))
-            self.assertEqual("*** Unknown syntax: test", output.getvalue().strip())
+            self.assertEqual(
+                "*** Unknown syntax: test",
+                output.getvalue().strip()
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
