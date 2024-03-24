@@ -3,7 +3,6 @@
 import unittest
 from models.base_model import BaseModel
 from models import storage
-import os
 
 
 class test_fileStorage(unittest.TestCase):
@@ -19,7 +18,8 @@ class test_fileStorage(unittest.TestCase):
         new = BaseModel()
         temp = {}
         temp.update(storage.all())
-        self.assertTrue(temp[new.to_dict()['__class__'] + '.' + new.id] is dict)
+        self.assertTrue(temp[new.to_dict()['__class__'] +
+                             '.' + new.id] is dict)
 
     def test_save(self):
         """ storage save to json file """
@@ -31,7 +31,7 @@ class test_fileStorage(unittest.TestCase):
 
     def test_reload(self):
         """ test reload __object in storage """
-        new = BaseModel() 
+        new = BaseModel()
         storage.reload()
         for obj in storage.all().values():
             loaded = obj

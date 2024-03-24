@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Test cases for the base model"""
-
 import unittest
 from models.city import City
+
 
 class TestCity(unittest.TestCase):
     """testing City class."""
@@ -10,9 +10,9 @@ class TestCity(unittest.TestCase):
         """ """
         super().__init__(*args, **kwargs)
         self.new = City({
-        "state_id": "state_id",
-        "name": "name"
-        })
+            "state_id": "state_id",
+            "name": "name"
+            })
 
     def test_state_id(self):
         """ test state_id """
