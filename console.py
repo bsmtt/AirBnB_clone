@@ -103,6 +103,8 @@ class HBNBCommand(cmd.Cmd):
         args = line.split(" ")
         if not line:
             print([val for val in storage.all().values()])
+        elif args[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
         else:
             obj = []
             for val in storage.all().values():
