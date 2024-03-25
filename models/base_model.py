@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """the Base Model """
 from uuid import uuid4
+import models
 from datetime import datetime
 from models import storage
 
