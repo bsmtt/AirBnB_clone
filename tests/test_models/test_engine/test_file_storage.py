@@ -5,6 +5,8 @@ from models.base_model import BaseModel
 from models import storage
 import os
 
+from models.engine.file_storage import FileStorage
+
 
 class test_fileStorage(unittest.TestCase):
     """ Class to test the FileStorage method """
@@ -66,3 +68,16 @@ class test_fileStorage(unittest.TestCase):
     def test_obj_list_empty(self):
         """ __objects is initially empty """
         self.assertEqual(len(storage.all()), 0)
+
+    def test_reload_from_nonexistent(self):
+        """ Nothing happens if file does not exist """
+        file_path = "file.json"
+        try:
+            file_path = FileStorage._FileStorage__file_path
+        except:
+            pass
+        try:
+            os.remove(file_path)
+        except Exception as e:
+            pass
+        self.assertEqual(storage.reload(), None)
