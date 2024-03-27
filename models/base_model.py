@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """the Base Model """
 from uuid import uuid4
+import models
 from datetime import datetime
 from models import storage
 
@@ -16,7 +17,6 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
         else:
-            kwargs['id'] = str(uuid4())
             kwargs['updated_at'] = datetime.strptime(kwargs['updated_at'],
                                                      '%Y-%m-%dT%H:%M:%S.%f')
             kwargs['created_at'] = datetime.strptime(kwargs['created_at'],
@@ -28,12 +28,13 @@ class BaseModel:
 
     def __str__(self):
         """ string representation of the class. """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+        self_name = type(self).__name__
+        dict_repr = str(self.__dict__)
+        return "[{}] ({}) {}".format(self_name, self.id, dict_repr)
 
     def save(self):
         """ save to instance. """
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
