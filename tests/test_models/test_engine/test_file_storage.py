@@ -52,3 +52,7 @@ class test_fileStorage(unittest.TestCase):
         new.save()
         new2 = BaseModel(**thing)
         self.assertNotEqual(os.path.getsize('file.json'), 0)
+
+    def test_obj_list_empty(self):
+        """ __objects is initially empty """
+        self.assertEqual(len(storage.all()), 0)
