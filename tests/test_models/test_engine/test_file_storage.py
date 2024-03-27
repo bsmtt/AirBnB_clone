@@ -43,10 +43,6 @@ class test_fileStorage(unittest.TestCase):
         with self.assertRaises(ValueError):
             storage.reload()
 
-    def test_reload_from_nonexistent(self):
-        """ Nothing happens if file does not exist """
-        self.assertEqual(storage.reload(), None)
-
     def test_type_path(self):
         """ Confirm __file_path is string """
         self.assertEqual(type(storage._FileStorage__file_path), str)

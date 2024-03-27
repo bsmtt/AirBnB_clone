@@ -8,6 +8,11 @@ import json
 
 class TestBaseModel(unittest.TestCase):
     """Unittests for testing the BaseModel class."""
+    def __init__(self, *args, **kwargs):
+        """ """
+        super().__init__(*args, **kwargs)
+        self.name = 'BaseModel'
+        self.value = BaseModel
 
     def setUp(self):
         """
