@@ -28,10 +28,24 @@ class test_fileStorage(unittest.TestCase):
         self.assertTrue(os.path.exists('file.json'))
 
     def test_reload(self):
-        """ test reload __object in storage """
+        """ Storage file is successfully loaded to __objects """
+        new = BaseModel()
+        storage.save()
         storage.reload()
-        temp = storage.all()
-        self.assertIsInstance(temp, dict)
+        for obj in storage.all().values():
+            loaded = obj
+        self.assertEqual(new.to_dict()['id'], loaded.to_dict()['id'])
+
+    def test_reload_empty(self):
+        """ Load from an empty file """
+        with open('file.json', 'w') as f:
+            pass
+        with self.assertRaises(ValueError):
+            storage.reload()
+
+    def test_reload_from_nonexistent(self):
+        """ Nothing happens if file does not exist """
+        self.assertEqual(storage.reload(), None)
 
     def test_type_path(self):
         """ Confirm __file_path is string """
