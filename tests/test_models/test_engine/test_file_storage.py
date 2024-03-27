@@ -45,3 +45,10 @@ class test_fileStorage(unittest.TestCase):
         for key in del_list:
             del storage._FileStorage__objects[key]
 
+    def test_empty(self):
+        """ Data is saved to file """
+        new = BaseModel()
+        thing = new.to_dict()
+        new.save()
+        new2 = BaseModel(**thing)
+        self.assertNotEqual(os.path.getsize('file.json'), 0)
