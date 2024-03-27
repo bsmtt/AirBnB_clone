@@ -4,7 +4,7 @@
 import unittest
 from datetime import datetime
 from models.base_model import BaseModel
-
+import json
 
 class TestBaseModel(unittest.TestCase):
     """Unittests for testing the BaseModel class."""
@@ -61,6 +61,20 @@ class TestBaseModel(unittest.TestCase):
         bm2 = BaseModel(**bm1.to_dict())
         self.assertIsInstance(bm2, BaseModel)
 
+    def test_save(self):
+        """ Testing save """
+        i = self.value()
+        i.save()
+        key = self.name + "." + i.id
+        with open('file.json', 'r') as f:
+            j = json.load(f)
+            self.assertEqual(j[key], i.to_dict())
+
+    def test_todict(self):
+        """ """
+        i = self.value()
+        n = i.to_dict()
+        self.assertEqual(i.to_dict(), n)
 
 if __name__ == "__main__":
     unittest.main()
