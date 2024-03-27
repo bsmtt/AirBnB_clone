@@ -32,3 +32,16 @@ class test_fileStorage(unittest.TestCase):
         storage.reload()
         temp = storage.all()
         self.assertIsInstance(temp, dict)
+
+    def test_type_path(self):
+        """ Confirm __file_path is string """
+        self.assertEqual(type(storage._FileStorage__file_path), str)
+
+    def setUp(self):
+        """ Set up test environment """
+        del_list = []
+        for key in storage._FileStorage__objects.keys():
+            del_list.append(key)
+        for key in del_list:
+            del storage._FileStorage__objects[key]
+
